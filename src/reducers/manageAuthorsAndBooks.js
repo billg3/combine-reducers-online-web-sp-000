@@ -13,7 +13,7 @@ export default function bookApp(
         authors: [...state.authors],
         books: [...state.books, action.book]
       };
- 
+
     case "REMOVE_BOOK":
       idx = state.books.findIndex(book => book.id === action.id);
       return {
@@ -21,14 +21,14 @@ export default function bookApp(
         authors: [...state.authors],
         books: [...state.books.slice(0, idx), ...state.books.slice(idx + 1)]
       };
- 
+
     case "ADD_AUTHOR":
       return {
         ...state,
         books: [...state.books],
         authors: [...state.authors, action.author]
       };
- 
+
     case "REMOVE_AUTHOR":
       idx = state.authors.findIndex(author => author.id === action.id);
       return {
@@ -36,7 +36,7 @@ export default function bookApp(
         books: [...state.books],
         authors: [...state.authors.slice(0, idx), ...state.authors.slice(idx + 1)]
       };
- 
+
     default:
       return state;
   }
